@@ -1,0 +1,377 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
+/*
+SASS mixins
+define a mixin
+    @mixin nameOfMixin( $param01, $param02, $param03 ){
+        //add css rules that use the $parameter data, eg
+        property:$param01;
+    }
+apply a mixin
+    selector{
+        @include nameOfMixin(value01, value02, value03);
+    }
+the values provided here will be used in the mixin,
+allowing customization of a shared codebase,
+change parameter values to get different results 
+*/
+@import url("fonts.css");
+@import url("normalize.css");
+.topics button {
+  padding: 15px 10px;
+  margin: 10px 10px;
+  border-radius: 10px;
+  font-size: 2vi;
+  width: 16.6666666667vw;
+  font-family: "Berkshire Swash", cursive;
+  background-color: #FFB9B9;
+  -webkit-animation: lights 5s 750ms linear infinite;
+          animation: lights 5s 750ms linear infinite;
+}
+.topics button:nth-of-type(1) {
+  box-shadow: 0 4px 0 0 rgba(222, 131, 201, 0.25), 0 -4px 0 0 rgba(239, 115, 159, 0.25), 4px 0 0 0 rgba(222, 131, 201, 0.25), -4px 0 0 0 rgba(239, 115, 159, 0.25), 4px -4px 0 0 rgba(230, 123, 180, 0.5), 4px 4px 0 0 rgba(230, 123, 180, 0.5), 4px 4px 0 0 rgba(213, 139, 221, 0.75), -4px -4px 0 0 rgba(247, 107, 138, 0.75);
+}
+.topics button:nth-of-type(2) {
+  box-shadow: 0 4px 0 0 rgba(245, 150, 217, 0.25), 0 -4px 0 0 rgba(224, 143, 220, 0.25), 4px 0 0 0 rgba(245, 150, 217, 0.25), -4px 0 0 0 rgba(224, 143, 220, 0.25), 4px -4px 0 0 rgba(234, 146, 218, 0.5), 4px 4px 0 0 rgba(234, 146, 218, 0.5), 4px 4px 0 0 rgba(255, 153, 215, 0.75), -4px -4px 0 0 rgba(213, 139, 221, 0.75);
+}
+.topics button:nth-of-type(3) {
+  box-shadow: 0 4px 0 0 rgba(249, 119, 158, 0.25), 0 -4px 0 0 rgba(253, 142, 196, 0.25), 4px 0 0 0 rgba(249, 119, 158, 0.25), -4px 0 0 0 rgba(253, 142, 196, 0.25), 4px -4px 0 0 rgba(251, 130, 177, 0.5), 4px 4px 0 0 rgba(251, 130, 177, 0.5), 4px 4px 0 0 rgba(247, 107, 138, 0.75), -4px -4px 0 0 rgba(255, 153, 215, 0.75);
+}
+.topics button:hover {
+  box-shadow: 0 4px 0 0 rgba(200, 71, 180, 0.25), 0 -4px 0 0 rgba(237, 94, 180, 0.25), 4px 0 0 0 rgba(200, 71, 180, 0.25), -4px 0 0 0 rgba(237, 94, 180, 0.25), 4px -4px 0 0 rgba(218, 82, 180, 0.5), 4px 4px 0 0 rgba(218, 82, 180, 0.5), 4px 4px 0 0 rgba(181, 59, 180, 0.75), -4px -4px 0 0 rgba(255, 105, 180, 0.75);
+  color: #B53BB4;
+  background-color: #FFDDD2;
+}
+
+canvas {
+  max-width: 500;
+  max-height: 300;
+  border-radius: 10px;
+  margin: 20px;
+  box-shadow: 0 4px 0 0 rgba(216, 192, 236, 0.25), 0 -4px 0 0 rgba(242, 202, 241, 0.25), 4px 0 0 0 rgba(216, 192, 236, 0.25), -4px 0 0 0 rgba(242, 202, 241, 0.25), 4px -4px 0 0 rgba(229, 197, 238, 0.5), 4px 4px 0 0 rgba(229, 197, 238, 0.5), 4px 4px 0 0 rgba(202, 187, 233, 0.75), -4px -4px 0 0 rgba(255, 206, 243, 0.75);
+}
+
+@-webkit-keyframes lights {
+  0% {
+    color: hsl(180deg, 40%, 80%);
+    text-shadow: 0 0 1em hsla(320deg, 100%, 50%, 0.2), 0 0 0.125em hsla(320deg, 100%, 60%, 0.3), -1em -0.125em 0.5em hsla(40deg, 100%, 60%, 0), 1em 0.125em 0.5em hsla(200deg, 100%, 60%, 0);
+  }
+  30% {
+    color: hsl(180deg, 80%, 90%);
+    text-shadow: 0 0 1em hsla(320deg, 100%, 50%, 0.5), 0 0 0.125em hsla(320deg, 100%, 60%, 0.5), -0.5em -0.125em 0.25em hsla(40deg, 100%, 60%, 0.2), 0.5em 0.125em 0.25em hsla(200deg, 100%, 60%, 0.4);
+  }
+  40% {
+    color: hsl(180deg, 100%, 95%);
+    text-shadow: 0 0 1em hsla(320deg, 100%, 50%, 0.5), 0 0 0.125em hsla(320deg, 100%, 90%, 0.5), -0.25em -0.125em 0.125em hsla(40deg, 100%, 60%, 0.2), 0.25em 0.125em 0.125em hsla(200deg, 100%, 60%, 0.4);
+  }
+  70% {
+    color: hsl(180deg, 80%, 90%);
+    text-shadow: 0 0 1em hsla(320deg, 100%, 50%, 0.5), 0 0 0.125em hsla(320deg, 100%, 60%, 0.5), 0.5em -0.125em 0.25em hsla(40deg, 100%, 60%, 0.2), -0.5em 0.125em 0.25em hsla(200deg, 100%, 60%, 0.4);
+  }
+  100% {
+    color: hsl(180deg, 40%, 80%);
+    text-shadow: 0 0 1em hsla(320deg, 100%, 50%, 0.2), 0 0 0.125em hsla(320deg, 100%, 60%, 0.3), 1em -0.125em 0.5em hsla(40deg, 100%, 60%, 0), -1em 0.125em 0.5em hsla(200deg, 100%, 60%, 0);
+  }
+}
+
+@keyframes lights {
+  0% {
+    color: hsl(180deg, 40%, 80%);
+    text-shadow: 0 0 1em hsla(320deg, 100%, 50%, 0.2), 0 0 0.125em hsla(320deg, 100%, 60%, 0.3), -1em -0.125em 0.5em hsla(40deg, 100%, 60%, 0), 1em 0.125em 0.5em hsla(200deg, 100%, 60%, 0);
+  }
+  30% {
+    color: hsl(180deg, 80%, 90%);
+    text-shadow: 0 0 1em hsla(320deg, 100%, 50%, 0.5), 0 0 0.125em hsla(320deg, 100%, 60%, 0.5), -0.5em -0.125em 0.25em hsla(40deg, 100%, 60%, 0.2), 0.5em 0.125em 0.25em hsla(200deg, 100%, 60%, 0.4);
+  }
+  40% {
+    color: hsl(180deg, 100%, 95%);
+    text-shadow: 0 0 1em hsla(320deg, 100%, 50%, 0.5), 0 0 0.125em hsla(320deg, 100%, 90%, 0.5), -0.25em -0.125em 0.125em hsla(40deg, 100%, 60%, 0.2), 0.25em 0.125em 0.125em hsla(200deg, 100%, 60%, 0.4);
+  }
+  70% {
+    color: hsl(180deg, 80%, 90%);
+    text-shadow: 0 0 1em hsla(320deg, 100%, 50%, 0.5), 0 0 0.125em hsla(320deg, 100%, 60%, 0.5), 0.5em -0.125em 0.25em hsla(40deg, 100%, 60%, 0.2), -0.5em 0.125em 0.25em hsla(200deg, 100%, 60%, 0.4);
+  }
+  100% {
+    color: hsl(180deg, 40%, 80%);
+    text-shadow: 0 0 1em hsla(320deg, 100%, 50%, 0.2), 0 0 0.125em hsla(320deg, 100%, 60%, 0.3), 1em -0.125em 0.5em hsla(40deg, 100%, 60%, 0), -1em 0.125em 0.5em hsla(200deg, 100%, 60%, 0);
+  }
+}
+/* ------ Fonts ------ */
+/* ------ Browser Resets ------ */
+/* ---- Ensure all page elements use box-sizing:border-box; ----- */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* ---- Varibles ---- */
+:root {
+  --first-font: "'montserratthin";
+  --second-font: "ralewaythin";
+  --third-font: "reeyregular";
+}
+
+body {
+  font-family: var(--first-font), Helvetica, sans-serif;
+  color: #372948;
+}
+
+h1 {
+  font-family: var(--third-font);
+  display: flex;
+  justify-content: center;
+  margin: 50px 0 50px 0;
+}
+
+h2 {
+  font-family: var(--second-font);
+  margin: 20px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+h2:after, h2:before {
+  content: " ✭ ";
+  color: #CABBE9;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+li {
+  line-height: 30px;
+  list-style: none;
+}
+
+ul {
+  padding-left: 10px;
+}
+
+/* --- Links --- */
+a {
+  color: #80489C;
+  text-decoration: none;
+}
+
+a:hover, a:focus, a:active {
+  color: #432C7A;
+}
+
+.links a {
+  -webkit-text-decoration: underline #BCE29E 2px;
+          text-decoration: underline #BCE29E 2px;
+}
+
+.links a:hover, .links a:focus, .links a:active {
+  -webkit-text-decoration: underline blueviolet 2px;
+          text-decoration: underline blueviolet 2px;
+}
+
+/* ---- Container --- */
+#wrapper {
+  background-color: #FFB9B9;
+  /* restrict width */
+  width: 100%;
+  max-width: 930px;
+  /* center the wrapper */
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* --- Sections --- */
+section {
+  background-color: #FFDDD2;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+section div {
+  position: relative;
+}
+
+/* --- Articles --- */
+article {
+  padding: 10px 0 10px 0;
+}
+
+/* --- Footer --- */
+footer {
+  background-color: #FFACC7;
+  margin-top: 50px;
+}
+
+footer div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.contact a:hover, .contact a:focus, .contact a:active,
+.contact i:hover, .contact i:focus, .contact i:active {
+  color: goldenrod;
+}
+
+.logo img {
+  max-width: 100px;
+}
+
+.signature {
+  background-color: #FFCACA;
+}
+
+/*------------GAME----------------*/
+.highlight {
+  border: 2px solid #FF99D7;
+  padding: 3px;
+}
+
+.topics {
+  text-align: center;
+}
+
+.gamearea {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+aside, .layout {
+  grid-column: 2/span 2;
+  text-align: center;
+  background-color: #FFCEF3;
+  border-radius: 10px;
+  margin: 10px 0px 0px 10px;
+}
+
+.layout {
+  grid-column: 1/span 1;
+  margin: 10px 0px 0px 0px;
+  background-color: #FFDDD2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.layout button {
+  padding: 5px;
+  margin-top: 10px;
+  border: 2px outset whitesmoke;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: #FFB9B9;
+  width: 100px;
+}
+
+.layout button:hover {
+  border: 2px inset whitesmoke;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+#instruction {
+  color: #432C7A;
+  padding: 10px;
+  font-family: var(--second-font);
+  font-weight: bold;
+}
+
+#imageData {
+  padding: 30px 5px 30px 5px;
+  color: rgba(174, 165, 174, 0.91);
+  background-color: rgba(240, 233, 233, 0.391);
+}
+
+.imagewrapper {
+  border: 2px dotted #CABBE9;
+  border-radius: 10px;
+  margin: 3px;
+}
+
+#imageData img {
+  max-width: 280px;
+  padding: 2px;
+  border-radius: 10px;
+}
+
+#nameData {
+  font-size: 1.5rem;
+  color: #F76B8A;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 5px;
+  text-shadow: 2px 2px 5px black;
+}
+
+#virtualKeys {
+  background-color: #CABBE9;
+  border-radius: 10px;
+  margin: 20px 0px 20px 0px;
+  padding: 20px;
+  display: block;
+  text-align: center;
+}
+
+#virtualKeys button {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  height: 45px;
+  width: 6%;
+  max-width: 90px;
+  margin: 3px;
+  border-radius: 4px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: top;
+  padding: 0;
+}
+
+#virtualKeys button:hover {
+  background: rgba(220, 118, 118, 0.567);
+}
+
+#notice {
+  background-image: linear-gradient(-225deg, #231557 0%, #44107a 29%, #ff1361 67%, #fff800 100%);
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: textclip 5s linear infinite;
+          animation: textclip 5s linear infinite;
+  display: inline-block;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+@-webkit-keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+@media screen and (max-width: 800px) {
+  .logo img {
+    max-width: 50px;
+  }
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>NU TRINH</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+        <!---Favicon-->
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+        <link rel="manifest" href="favicon/site.webmanifest">
+        
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="scripts/keyboard.js" defer></script>
+        <script src="scripts/background.js" defer></script>
+        <script src="scripts/characters.js" defer></script>
+        <script src="scripts/project.js" defer></script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <header>
+                <h1>Toni's Project</h1>
+            </header>
+            <main>        
+                <section>
+                    <h2>Please pick a topic to start the game</h2>
+                    <div class="topics">
+                        <button id="button1">Animals</button>
+                        <button id="button2">Harry Potter</button>
+                        <button id="button3">Bob's Burgers</button>
+                    </div>
+                </section>
+                <div class="gamearea">
+                    <div class="layout">
+                        <div id="instruction"></div>
+                        <div class="imagewrapper">
+                            <div id="imageData">Image will be displayed here</div>
+                        </div>
+                        <div class="userChoice">
+                            <button id="start" class="hidden">Start</button>
+                            <button id="restart" class="hidden">Try again</button>
+                        </div>
+                        <div id="nameData"></div>
+                    </div>
+                    <aside>
+                        <canvas id="canvas"></canvas>
+                        <div id="notice">Help the angle destroy the bats!</div>
+                    </aside>
+                </div>
+                <div id="virtualKeys"></div>
+            </main>
+            <footer>
+                <div class="logo"><img src="images/logo-toni.png" alt="footer logo"></div>
+                <div class="contact">
+                    <h3>Contact me</h3>
+                    <ul>
+                        <li><a href="#"><i class="icon-instagram"> Instagram</i></a></li>
+                        <li><a href="#"><i class="icon-github"> Github</i></a></li>
+                    </ul>
+                </div>
+                <div class="signature">
+                    <p>Made by Toni <span>&#9829;</span></p>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
