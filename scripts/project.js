@@ -107,11 +107,11 @@ btn3.addEventListener("click", () => {
 
 startBtn.addEventListener("click", () =>  {
     showFirstDisplay(currentNameIdx);
-    notice.innerHTML = `If you fail ${MAX_FAILS} times, there will be total bat infestation.`;
+    notice.innerHTML = `If you fail more than ${MAX_FAILS} times, there will be total bat infestation.`;
 });
 
 restartBtn.addEventListener("click", () => { 
-    notice.innerHTML = `If you fail ${MAX_FAILS} times, there will be total bat infestation.`;
+    notice.innerHTML = `If you fail more than ${MAX_FAILS} times, there will be total bat infestation.`;
     playAgain();
 });
 
@@ -233,13 +233,14 @@ function playAgain() {
 
 // Gameover 
 function checkAttempts() {
-    if(failCount < MAX_FAILS) {
+    if(failCount <= MAX_FAILS) {
         notice.innerHTML = `You only have 
-                            <span class="highlight">${MAX_FAILS - failCount}</span> guesses left.`;
+                            <span class="highlight">${MAX_FAILS - failCount}</span> wrong guesses left.`;
     }
-    else if(failCount === MAX_FAILS) {
+    else if(failCount > MAX_FAILS) {
+        // add sound 
         wrongSound.play();
-        notice.innerHTML = `You failed <span class="highlight"> ${MAX_FAILS}</span> times. BAT INFESTATION!`;
+        notice.innerHTML = `You failed <span class="highlight"> ${failCount}</span> times. BAT INFESTATION!`;
         //show name 
         nameData.innerHTML = `<p>${targetName}</p>`;
         // stop the game
@@ -253,7 +254,7 @@ function checkAttempts() {
 }
 
 function checkWinning() {
-    if(!(result.includes("-"))) {
+    if(!(result.includes("_"))) {
         fullSuccess = true;
         notice.innerHTML = `YAY! YOU WON`;
         playing = false;
@@ -275,11 +276,10 @@ function checkRightGuess (guess) {
 
 // what happens when the guess is wrong
 function checkWrongGuess (guess) {
+    console.log("Guess is " + guess);
     if(!(result.includes(guess))) {
         failCount++;
         console.log(`You got it wrong!`);
-        // add sound 
-        wrongSound.play();
         // add animation effect
         cancelAnimationFrame(animationId);
         numOfMonsters += 10;
@@ -295,7 +295,7 @@ function showFirstDisplay (currentIndx) {
     if(!result || !result.length) {
         // spread ...operator allows the string to be expanded in places where
         // elements (for array literals) are expected
-        [...targetName].forEach( () => result.push("-"));
+        [...targetName].forEach( () => result.push("_"));
     }
     nameData.innerHTML = `<p>${result.join('')}</p>`;
     console.log(images[currentIndx]);
@@ -312,28 +312,29 @@ function processName(string){
 
 
 // Display userInput
-function checkLetter(guess) {
-    console.log(targetName);
+function checkLetter(targetNm, guess) {
+    console.log(targetNm);
     let indices = [];
-    for(i = 0; i < targetName.length; i++) {
-        if(targetName[i]=== guess) {
+    for(i = 0; i < targetNm.length; i++) {
+        if(targetNm[i]=== guess) {
             indices.push(i);
         }
     };
 
-    [...targetName].forEach((element, index) => {
+    [...targetNm].forEach((element, index) => {
         if (indices.includes(index)) {
             result[index] = guess;
         }
-        else if (result[index]!=='-') {
+        else if (result[index]!=='_') {
             result[index] = result[index];
         }
         else {
-            result[index] = '-';
+            result[index] = '_';
         }
     });
     nameData.innerHTML = `<p>${result.join('')}</p>`;
     checkWrongGuess(guess);
     checkRightGuess(guess);
-    checkWinning(targetName);
+    checkAttempts();
+    checkWinning(targetNm);
 }

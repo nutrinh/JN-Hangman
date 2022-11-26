@@ -9,7 +9,7 @@ virtualKeys.appendChild(createKeyBoard());
 function createKeyBoard() {
     const fragment = document.createDocumentFragment();   // create a document fragment
     const keyLayout = [
-        "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
+        "-", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
         "a", "s", "d", "f", "g", "h", "j", "k", "l",
         "z", "x", "c", "v", "b", "n", "m"
     ];
@@ -24,9 +24,6 @@ function createKeyBoard() {
             
             // when user clicks, the game logic (from project.js) is updated
             if(playing && !gameover) {
-                checkAttempts();
-            }
-            if(playing) {
                 checkLetter(targetName.toLowerCase(), key);
             }
         });
